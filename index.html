@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Suhana Ilyas — Product Builder</title>
+<meta name="description" content="Suhana Ilyas — BBA student at Jamia Millia Islamia, founder of Whisperloop."/>
+<link rel="preconnect" href="https://api.fontshare.com"/>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FAFAF9;
+  --bg2:#F4F2EF;
+  --ink:#1A1714;
+  --ink2:#5C5650;
+  --ink3:#A09890;
+  --violet:#6B5CE7;
+  --violet-l:#EDE9FF;
+  --pink:#E8537A;
+  --pink-l:#FDEEF3;
+  --green:#1D7A4F;
+  --green-l:#E6F4EE;
+  --amber:#B86B00;
+  --amber-l:#FEF3E2;
+  --card:#FFFFFF;
+  --border:#E8E4DF;
+  --border2:#F0EDE8;
+  --ff-d:'Clash Display',sans-serif;
+  --ff-b:'Satoshi',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--ff-b);font-size:16px;line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--violet);color:#fff;}
+a{color:inherit;text-decoration:none;}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+.reveal.vis{opacity:1;transform:none;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}.d4{transition-delay:.32s;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:background .3s,box-shadow .3s;}
+nav.scrolled{background:rgba(250,250,249,.92);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border);}
+.nn{font-family:var(--ff-d);font-size:15px;font-weight:600;color:var(--ink);letter-spacing:.01em;}
+.nl{display:flex;gap:28px;}
+.nl a{font-size:13px;font-weight:600;color:var(--ink2);transition:color .2s;}
+.nl a:hover{color:var(--violet);}
+
+/* Wrap */
+.wrap{max-width:880px;margin:0 auto;padding:0 32px;}
+
+/* Hero */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 32px 80px;max-width:880px;margin:0 auto;}
+.ey{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--violet);margin-bottom:22px;}
+.ey-dot{width:6px;height:6px;background:var(--violet);border-radius:50%;display:block;}
+h1.hero-h{font-family:var(--ff-d);font-size:clamp(52px,9vw,96px);font-weight:700;line-height:.94;letter-spacing:-.04em;color:var(--ink);margin-bottom:16px;}
+h1.hero-h em{font-style:normal;color:var(--violet);}
+.hero-sub{font-size:clamp(15px,2.5vw,19px);color:var(--ink2);font-weight:500;max-width:500px;line-height:1.55;margin-bottom:36px;}
+.hero-sub strong{color:var(--ink);}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:var(--ff-b);transition:all .22s;}
+.btn-p{background:var(--violet);color:#fff;box-shadow:0 4px 20px rgba(107,92,231,.28);}
+.btn-p:hover{background:#5848D4;transform:translateY(-1px);box-shadow:0 8px 28px rgba(107,92,231,.38);}
+.btn-g{background:transparent;color:var(--ink2);border:1.5px solid var(--border);}
+.btn-g:hover{border-color:var(--violet);color:var(--violet);}
+.hero-scroll{margin-top:72px;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;}
+.scroll-line{width:32px;height:1px;background:var(--ink3);}
+
+/* Section structure */
+section{padding:88px 0;}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;}
+h2.sec-h{font-family:var(--ff-d);font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.03em;color:var(--ink);line-height:1.15;margin-bottom:10px;}
+p.sec-p{font-size:15px;color:var(--ink2);line-height:1.7;max-width:480px;}
+
+/* About */
+.about-note{margin-top:32px;font-size:15px;color:var(--ink2);line-height:1.8;max-width:580px;border-left:3px solid var(--violet);padding-left:20px;}
+.about-note strong{color:var(--ink);}
+.edu-block{margin-top:36px;display:inline-flex;align-items:center;gap:16px;background:var(--card);border:1.5px solid var(--border);border-radius:18px;padding:20px 24px;}
+.edu-icon{width:46px;height:46px;border-radius:14px;background:var(--violet-l);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.edu-title{font-family:var(--ff-d);font-size:16px;font-weight:600;color:var(--ink);}
+.edu-sub{font-size:13px;color:var(--ink2);margin-top:2px;}
+
+/* Project */
+#project{background:var(--bg2);}
+.proj-card{background:var(--card);border:1.5px solid var(--border);border-radius:24px;overflow:hidden;}
+.proj-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:44px 44px 0;align-items:start;}
+.proj-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.proj-logo{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#7C6FFF,#B06FFF);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 6px 20px rgba(124,111,255,.25);}
+.proj-name{font-family:var(--ff-d);font-size:26px;font-weight:700;color:var(--ink);letter-spacing:-.02em;}
+.proj-tag{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--violet);background:var(--violet-l);padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:14px;}
+.proj-desc{font-size:15px;color:var(--ink2);line-height:1.65;margin-bottom:24px;}
+.stat-row{display:flex;gap:28px;margin-bottom:24px;}
+.stat-n{font-family:var(--ff-d);font-size:28px;font-weight:700;color:var(--ink);display:block;letter-spacing:-.03em;}
+.stat-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);display:block;margin-top:1px;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);color:var(--ink2);letter-spacing:.02em;}
+
+/* Phone */
+.phone-wrap{display:flex;justify-content:center;align-items:flex-start;padding-top:8px;}
+.phone{width:188px;background:linear-gradient(160deg,#1E1828,#130F1E);border-radius:30px;border:1px solid rgba(255,255,255,.12);overflow:hidden;box-shadow:0 32px 64px rgba(0,0,0,.18),0 0 0 1px rgba(124,111,255,.12);transform:perspective(900px) rotateY(-9deg) rotateX(4deg);transition:transform .45s cubic-bezier(.22,1,.36,1);}
+.phone:hover{transform:perspective(900px) rotateY(0) rotateX(0);}
+.p-status{display:flex;justify-content:space-between;padding:10px 14px 0;font-size:9px;color:#5C546E;font-weight:600;}
+.p-title{padding:8px 12px 2px;font-size:11px;font-weight:700;color:#F0EDF8;font-family:'Clash Display',sans-serif;}
+.p-sub{padding:0 12px 8px;font-size:8px;color:#5C546E;}
+.p-clip{margin:0 10px 8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px;}
+.p-row{display:flex;align-items:center;gap:7px;margin-bottom:7px;}
+.p-av{width:24px;height:24px;border-radius:7px;background:rgba(124,111,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p-wf{display:flex;align-items:center;gap:1.5px;height:22px;flex:1;}
+.p-bar{width:2px;border-radius:99px;}
+.p-tag{font-size:8px;font-weight:700;padding:2px 6px;border-radius:20px;}
+.p-play{width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,#7C6FFF,#6040E0);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* Builder note */
+.builder-note{margin:32px 44px;padding:20px 24px;background:var(--violet-l);border-radius:16px;border:1px solid rgba(107,92,231,.15);display:flex;gap:14px;align-items:flex-start;}
+.builder-note span{font-size:18px;flex-shrink:0;margin-top:1px;}
+.builder-note p{font-size:13px;color:#3D3580;line-height:1.7;}
+.builder-note p strong{color:var(--violet);}
+
+/* Features */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border);}
+.feat{padding:28px;border-right:1px solid var(--border);transition:background .25s;}
+.feat:last-child{border-right:none;}
+.feat:hover{background:var(--bg2);}
+.feat-icon{font-size:22px;margin-bottom:10px;}
+.feat-t{font-family:var(--ff-d);font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.feat-d{font-size:12px;color:var(--ink2);line-height:1.6;}
+
+/* Research / testing section */
+#research{background:var(--bg);}
+.research-intro{font-size:15px;color:var(--ink2);line-height:1.75;max-width:540px;margin-bottom:40px;}
+.research-intro strong{color:var(--ink);}
+.stats-banner{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+.stat-card{background:var(--card);border:1.5px solid var(--border);border-radius:18px;padding:24px;text-align:center;transition:border-color .25s,transform .25s;}
+.stat-card:hover{border-color:var(--violet);transform:translateY(-2px);}
+.stat-big{font-family:var(--ff-d);font-size:42px;font-weight:700;color:var(--violet);letter-spacing:-.04em;display:block;}
+.stat-desc{font-size:12px;color:var(--ink2);margin-top:4px;font-weight:600;letter-spacing:.01em;}
+.findings-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;}
+.finding-card{background:var(--card);border:1.5px solid var(--border);border-radius:18px;padding:24px;transition:border-color .25s;}
+.finding-card:hover{border-color:var(--border);}
+.finding-pct{font-family:var(--ff-d);font-size:32px;font-weight:700;letter-spacing:-.03em;margin-bottom:6px;}
+.finding-label{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.finding-note{font-size:12px;color:var(--ink2);line-height:1.6;}
+.bar-bg{height:6px;background:var(--bg2);border-radius:99px;margin-top:12px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:99px;transition:width 1.2s cubic-bezier(.22,1,.36,1);}
+/* Quotes */
+.quotes{display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+.quote-card{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:18px 20px;display:flex;gap:12px;align-items:flex-start;}
+.q-mark{font-size:22px;color:var(--violet);line-height:1;flex-shrink:0;font-family:Georgia,serif;margin-top:-2px;}
+.q-text{font-size:13px;color:var(--ink);line-height:1.65;font-style:italic;}
+.q-from{font-size:11px;color:var(--ink3);margin-top:5px;font-weight:600;font-style:normal;}
+/* Insight box */
+.insight{margin-top:32px;background:var(--green-l);border:1.5px solid rgba(29,122,79,.15);border-radius:18px;padding:22px 26px;display:flex;gap:14px;align-items:flex-start;}
+.insight-icon{font-size:20px;flex-shrink:0;}
+.insight-text{font-size:13px;color:#174D32;line-height:1.7;}
+.insight-text strong{color:var(--green);}
+
+/* Process */
+#process{background:var(--bg2);}
+.process-list{display:flex;flex-direction:column;gap:12px;margin-top:30px;}
+.process-item{background:var(--card);border:1.5px solid var(--border);border-radius:16px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;transition:border-color .25s,transform .25s;}
+.process-item:hover{border-color:rgba(107,92,231,.3);transform:translateX(4px);}
+.process-arrow{font-size:16px;color:var(--pink);flex-shrink:0;font-weight:700;margin-top:2px;}
+.process-t{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.process-d{font-size:13px;color:var(--ink2);line-height:1.6;}
+
+/* Contact */
+#contact{background:var(--bg);padding-bottom:72px;}
+.contact-box{background:var(--card);border:1.5px solid var(--border);border-radius:24px;padding:52px;text-align:center;position:relative;overflow:hidden;}
+.contact-box::before{content:'';position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(107,92,231,.06),transparent 70%);pointer-events:none;}
+.contact-h{font-family:var(--ff-d);font-size:clamp(30px,5vw,48px);font-weight:700;letter-spacing:-.03em;color:var(--ink);margin-bottom:12px;line-height:1.1;}
+.contact-h em{font-style:normal;color:var(--violet);}
+.contact-sub{font-size:15px;color:var(--ink2);margin-bottom:32px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.65;}
+.contact-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cl{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-size:14px;font-weight:700;border:1.5px solid var(--border);background:var(--bg2);color:var(--ink2);transition:all .22s;}
+.cl:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-l);}
+
+footer{padding:26px 32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--ink3);}
+
+@media(max-width:700px){
+  nav{padding:14px 20px;}.nl{gap:16px;}
+  #hero{padding:100px 20px 60px;}
+  .proj-top{grid-template-columns:1fr;gap:28px;padding:28px 24px 0;}
+  .phone{transform:none;width:175px;}.phone:hover{transform:none;}
+  .feat-grid{grid-template-columns:1fr;}
+  .feat{border-right:none;border-bottom:1px solid var(--border);}.feat:last-child{border-bottom:none;}
+  .findings-grid{grid-template-columns:1fr;}
+  .stats-banner{grid-template-columns:1fr 1fr;}
+  .builder-note{margin:20px 24px;}
+  .contact-box{padding:36px 22px;}
+  footer{flex-direction:column;gap:8px;text-align:center;}
+}
+@media(max-width:420px){.stats-banner{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav id="nb">
+  <span class="nn">Suhana Ilyas</span>
+  <div class="nl">
+    <a href="#about">About</a>
+    <a href="#project">Whisperloop</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="ey reveal"><span class="ey-dot"></span>Product Builder</div>
+  <h1 class="hero-h reveal d1">Suhana<br/><em>Ilyas.</em></h1>
+  <p class="hero-sub reveal d2"><strong>BBA student at Jamia Millia Islamia.</strong> I build products that solve real problems — currently working on anonymous voice experiences for campus communities.</p>
+  <div class="btn-row reveal d3">
+    <a href="https://whisperloop-jmi.netlify.app/" target="_blank" class="btn btn-p">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 12h2M6 8v8M10 5v14M14 9v6M18 7v10M22 12h-2"/></svg>
+      See Whisperloop
+    </a>
+    <a href="#contact" class="btn btn-g">Get in touch</a>
+  </div>
+  <div class="hero-scroll reveal d4"><span class="scroll-line"></span><span>Scroll</span></div>
+</section>
+
+<!-- About -->
+<section id="about"><div class="wrap">
+  <div class="sec-label reveal">About</div>
+  <h2 class="sec-h reveal d1">Studying business.<br/>Building things on the side.</h2>
+  <div class="about-note reveal d2">
+    I'm in my final year at JMI and I spend a lot of time thinking about products — what makes people actually use something, what makes them come back, and what makes them trust it. <strong>Whisperloop is my attempt at answering those questions with something real, not just a case study.</strong>
+  </div>
+  <div class="edu-block reveal d3">
+    <div class="edu-icon">🎓</div>
+    <div>
+      <div class="edu-title">Jamia Millia Islamia</div>
+      <div class="edu-sub">Bachelor of Business Administration &nbsp;·&nbsp; Class of 2026</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- Whisperloop -->
+<section id="project"><div class="wrap">
+  <div class="sec-label reveal">What I built</div>
+  <div class="proj-card reveal d1">
+    <div class="proj-top">
+
+      <!-- Left: info -->
+      <div>
+        <div class="proj-logo-row">
+          <div class="proj-logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M2 12h2M6 8v8M10 5v14M14 9v6M18 7v10M22 12h-2"/></svg></div>
+          <span class="proj-name">Whisperloop</span>
+        </div>
+        <div class="proj-tag">Anonymous Voice App</div>
+        <p class="proj-desc">Students have thoughts they can't say out loud — not even in a text. Whisperloop lets you record an 8-second voice clip, masks your voice, and posts it to a campus feed. No name. No face. Just the thought.</p>
+        <div class="stat-row">
+          <div><span class="stat-n">8s</span><span class="stat-l">Max clip</span></div>
+          <div><span class="stat-n">0</span><span class="stat-l">PII stored</span></div>
+          <div><span class="stat-n">100%</span><span class="stat-l">Anonymous</span></div>
+        </div>
+        <div class="chips">
+          <span class="chip">Product Design</span>
+          <span class="chip">Prototyping</span>
+          <span class="chip">Web Audio API</span>
+          <span class="chip">User Research</span>
+          <span class="chip">Privacy by Design</span>
+        </div>
+      </div>
+
+      <!-- Right: phone -->
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="p-status"><span>9:41</span><span>100%</span></div>
+          <div class="p-title">Loop</div>
+          <div class="p-sub">Anonymous voices from JMI</div>
+          <!-- clip 1 -->
+          <div class="p-clip">
+            <div class="p-row">
+              <div class="p-av"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7C6FFF" stroke-width="2" stroke-linecap="round"><path d="M17.94 17.94A10 10 0 0112 20c-7 0-11-8-11-8a18 18 0 015-6"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
+              <div style="flex:1"><div style="font-size:9px;font-weight:700;color:#F0EDF8;">JMI · MBA</div><div style="font-size:8px;color:#5C546E;">2m ago</div></div>
+              <span class="p-tag" style="background:rgba(255,92,122,.15);color:#FF5C7A;">#confession</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <div class="p-play"><svg width="6" height="6" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <div class="p-wf" id="wf1"></div>
+            </div>
+          </div>
+          <!-- clip 2 -->
+          <div class="p-clip">
+            <div class="p-row">
+              <div class="p-av"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#7C6FFF" stroke-width="2" stroke-linecap="round"><path d="M17.94 17.94A10 10 0 0112 20c-7 0-11-8-11-8a18 18 0 015-6"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
+              <div style="flex:1"><div style="font-size:9px;font-weight:700;color:#F0EDF8;">JMI · LLB</div><div style="font-size:8px;color:#5C546E;">11m ago</div></div>
+              <span class="p-tag" style="background:rgba(255,180,50,.15);color:#FFB432;">#rant</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <div class="p-play"><svg width="6" height="6" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+              <div class="p-wf" id="wf2"></div>
+            </div>
+          </div>
+          <!-- clip 3 faded -->
+          <div class="p-clip" style="opacity:.45;">
+            <div class="p-row">
+              <div class="p-av"></div>
+              <div style="flex:1"><div style="font-size:9px;font-weight:700;color:#F0EDF8;">JMI · B.Tech</div><div style="font-size:8px;color:#5C546E;">34m ago</div></div>
+              <span class="p-tag" style="background:rgba(124,111,255,.15);color:#A78BFF;">#story</span>
+            </div>
+          </div>
+          <div style="height:12px;"></div>
+        </div>
+      </div>
+
+    </div><!-- /proj-top -->
+
+    <div class="builder-note">
+      <span>⚡</span>
+      <p><strong>I built this from scratch.</strong> Designed the UX, wrote the code, figured out real-time voice pitch shifting with the Web Audio API, built a report and moderation system, and validated it with students at JMI — all befor
